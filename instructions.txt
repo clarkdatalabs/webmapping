@@ -105,3 +105,28 @@ Creating the Web View
         var geolayer = L.geoJson(geodata, {
             onEachFeature: showPopup
         });
+
+
+
+Wrapping it all up:
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>1920 Map of Ann Arbor</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link href="http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.css" media="screen, print" rel="stylesheet">
+<script src="http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.js"></script>
+<style type="text/css">
+/* paste CSS below this line */
+
+</style>
+</head>
+<body>
+<!-- paste HTML below this line -->
+ 
+<script type="text/javascript">
+// paste JavaScript below this line
+
+</script>
+</body>
+</html>
