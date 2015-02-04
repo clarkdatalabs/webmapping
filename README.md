@@ -11,10 +11,10 @@ http://jsfiddle.net/
 
 links for leaflet/mapbox:
 CSS file:
-http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.css
+http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css
 
 JavaScript file:
-http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.js
+http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
 
 Georeference maps and create tiles
 http://maps.nypl.org/warper/
