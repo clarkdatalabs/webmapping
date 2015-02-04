@@ -22,13 +22,29 @@ Creating Vector Data
             In Chrome go under View->Developer->Javascript Console
         3. Add your map by typing (or copying) -- you can use your map instead of mine -- just replace the 8120:
             window.api.map.addLayer( L.tileLayer( 'http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png' ) );
-        4. 
+        4. Using the tools on the right side of the map you can add polygons, rectangles, points or lines
+            Double click to finish a polygon or line
+            You can use the table view to add attribute information about any of your vectors
+            You can also click on a shape to open the attribute editor for that individual item
 
     Importing
-    #note that geojson.io requires values for each latitude and longitude otherwise it will fail (set to 0,0 if you do not know)
+        Simply drag your csv (comma seperated value--excel and google docs can export .csv files) to the map
+        As long as the file has a Latitude and Longitude column it will add them as points to map
+        #note that geojson.io requires values for each latitude and longitude otherwise it will fail (set to 0,0 if you do not know)
 
+
+    Exporting
+        You can save out your geojson by using the 'Save' menu and selecting geojson, we will then paste it into our javascript below
 
 Creating the Web View
+
+    using jsfiddle add these as resources (on the left hand side under External Resources):
+
+        CSS file:
+        http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.css
+
+        JavaScript file:
+        http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.js
 
     html:
         <div id="map"></div>
@@ -55,12 +71,12 @@ Creating the Web View
         map.setView([42.2718, -83.7436], 14);
 
 
-        var geo_json = 'put your geojson here'
+        var geo_json = 'put your geojson here';
 
         var geodata = JSON.parse(geo_json);
-        var geolayer = L.geoJson(geodata, {
-            onEachFeature: showPopup
-        });
+
+        //we'll change this once we add the popup
+        var geolayer = L.geoJson(geodata);
 
         // add the points to the map
         geolayer.addTo(map);
@@ -83,3 +99,9 @@ Creating the Web View
             }
             layer.bindPopup(content.join("<br />"));
         }
+
+    Change the command to add the layer to:
+
+        var geolayer = L.geoJson(geodata, {
+            onEachFeature: showPopup
+        });
