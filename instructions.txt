@@ -24,56 +24,56 @@ Creating Vector Data
 
 Creating the Web View
 
-html:
-    <div id="map"></div>
+    html:
+        <div id="map"></div>
 
-css:
-#map {
-    width:600px;
-    height:500px;
-}
-
-javascript:
-// use a variable for the 1920 tile set
-var a2_1920 = L.tileLayer('http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png');
-var a2_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-});
-
-// create the map with the tilesets
-var map = L.map('map', {
-    layers: [a2_mod, a2_1920]
-});
-
-// zoom and center in Ann Arbor
-map.setView([42.2718, -83.7436], 14);
-
-
-var geo_json = 'put your geojson here'
-
-var geodata = JSON.parse(geo_json);
-var geolayer = L.geoJson(geodata, {
-    onEachFeature: showPopup
-});
-
-// add the points to the map
-geolayer.addTo(map);
-
-
-
-
-
-Javascript function to add a popup:
-
-function showPopup(feature, layer) {
-    var key, val;
-    var content = [];
-    for (key in feature.properties) {
-        val = feature.properties[key];
-        if (key == "Image URL") {
-            val = '<img src="' + val + '"  width="150" />';
+    css:
+        #map {
+            width:600px;
+            height:500px;
         }
-        content.push("<strong>" + key + ":</strong> " + val);
-    }
-    layer.bindPopup(content.join("<br />"));
-}
+
+    javascript:
+        // use a variable for the 1920 tile set
+        var a2_1920 = L.tileLayer('http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png');
+        var a2_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
+
+        // create the map with the tilesets
+        var map = L.map('map', {
+            layers: [a2_mod, a2_1920]
+        });
+
+        // zoom and center in Ann Arbor
+        map.setView([42.2718, -83.7436], 14);
+
+
+        var geo_json = 'put your geojson here'
+
+        var geodata = JSON.parse(geo_json);
+        var geolayer = L.geoJson(geodata, {
+            onEachFeature: showPopup
+        });
+
+        // add the points to the map
+        geolayer.addTo(map);
+
+
+
+
+
+    Javascript function to add a popup:
+
+        function showPopup(feature, layer) {
+            var key, val;
+            var content = [];
+            for (key in feature.properties) {
+                val = feature.properties[key];
+                if (key == "Image URL") {
+                    val = '<img src="' + val + '"  width="150" />';
+                }
+                content.push("<strong>" + key + ":</strong> " + val);
+            }
+            layer.bindPopup(content.join("<br />"));
+        }
