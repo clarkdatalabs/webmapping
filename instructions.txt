@@ -17,7 +17,13 @@ Rectifying Historic Map
 Creating Vector Data
 
     Tracing
-    
+        1. Zoom in on Ann Arbor or wherever you are working
+        2. We can add the tiles from the previous step by opening up the Javascript Console.
+            In Chrome go under View->Developer->Javascript Console
+        3. Add your map by typing (or copying) -- you can use your map instead of mine -- just replace the 8120:
+            window.api.map.addLayer( L.tileLayer( 'http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png' ) );
+        4. 
+
     Importing
     #note that geojson.io requires values for each latitude and longitude otherwise it will fail (set to 0,0 if you do not know)
 
