@@ -1,0 +1,75 @@
+Rectifying Historic Map
+
+1. Download the Ann Arbor 1920 Map from resources/ann_arbor_1920.jpg
+2. Go to mapwarper.net and create an account
+3. Login and click on the 'Upload Map' tab
+4. Upload the 1920 Ann Arbor Map (if you are doing this with another map you should make sure that providing the map publicaly does not violate copyright)
+5. Within the Map page click on the 'Rectify' tab
+6. Using the pan and zoom tools find a place that you can identify on both maps
+7. Using the pen tool double click on the same place on both maps and then click the 'Add Control Point' button
+8. Repeat for a total of at least three control points
+9. Click 'Warp Image!'
+10. In the 'Export' tab make note of the number that you find in the string like this (8120 in this example):
+http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png
+This will be your link to the image tiles
+
+
+Creating Vector Data
+
+
+
+Creating the Web View
+
+html:
+<div id="map"></div>
+
+css:
+#map {
+    width:600px;
+    height:500px;
+}
+
+javascript:
+// use a variable for the 1920 tile set
+var a2_1920 = L.tileLayer('http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png');
+var a2_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+
+// create the map with the tilesets
+var map = L.map('map', {
+    layers: [a2_mod, a2_1920]
+});
+
+// zoom and center in Ann Arbor
+map.setView([42.2718, -83.7436], 14);
+
+
+var geo_json = 'put your geojson here'
+
+var geodata = JSON.parse(geo_json);
+var geolayer = L.geoJson(geodata, {
+    onEachFeature: showPopup
+});
+
+// add the points to the map
+geolayer.addTo(map);
+
+
+
+
+
+Javascript function to add a popup:
+
+function showPopup(feature, layer) {
+    var key, val;
+    var content = [];
+    for (key in feature.properties) {
+        val = feature.properties[key];
+        if (key == "Image URL") {
+            val = '<img src="' + val + '"  width="150" />';
+        }
+        content.push("<strong>" + key + ":</strong> " + val);
+    }
+    layer.bindPopup(content.join("<br />"));
+}
