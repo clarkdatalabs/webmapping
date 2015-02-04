@@ -25,7 +25,7 @@ Creating Vector Data
 Creating the Web View
 
 html:
-<div id="map"></div>
+    <div id="map"></div>
 
 css:
 #map {
