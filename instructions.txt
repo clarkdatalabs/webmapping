@@ -41,10 +41,10 @@ Creating the Web View
     using jsfiddle add these as resources (on the left hand side under External Resources):
 
         CSS file:
-        http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.css
+        http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css
 
         JavaScript file:
-        http://api.tiles.mapbox.com/mapbox.js/v1.5.0/mapbox.js
+        http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
 
     html:
         <div id="map"></div>
