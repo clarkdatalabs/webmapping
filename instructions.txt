@@ -41,10 +41,10 @@ Creating the Web View
     using jsfiddle add these as resources (on the left hand side under External Resources):
 
         CSS file:
-        http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css
+        https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css
 
         JavaScript file:
-        http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
+        https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js
 
     html:
         <div id="map"></div>
