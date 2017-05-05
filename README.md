@@ -1,7 +1,4 @@
-# webmapping
-A tutorial for open source web mapping
-
-#helpful links
+# Helpful links
 
 read in csv files to create geojson maps
 http://geojson.io
