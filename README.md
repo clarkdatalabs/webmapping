@@ -1,19 +1,3 @@
-# Helpful links
+In this wokrshop, modified from a [NYPL Labs tutorial](https://www.nypl.org/blog/2015/01/05/web-maps-primer), we will create a web map from a (scanned) print map of Ann Arbor. This includes: georeferencing a historic map, tracing parks, finding and including historic building data, and putting all content together into an interactive web map.
 
-read in csv files to create geojson maps
-http://geojson.io
-
-create realtime javascript/html files
-http://jsfiddle.net/
-
-links for leaflet/mapbox:
-CSS file:
-http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css
-
-JavaScript file:
-http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js
-
-Georeference maps and create tiles
-http://maps.nypl.org/warper/
-
-
+You can download accompanying data and resources in [the GitHub repository](https://github.com/clarkdatalabs/webmapping).
