@@ -1,40 +1,42 @@
-Rectifying Historic Map
+  
 
-    1. Download the Ann Arbor 1920 Map from resources/ann_arbor_1920.jpg
-    2. Go to mapwarper.net and create an account
-    3. Login and click on the 'Upload Map' tab
-    4. Upload the 1920 Ann Arbor Map (if you are doing this with another map you should make sure that providing the map publicaly does not violate copyright)
+Georeferencing Your Historic Map
+    1. Go to mapwarper.net and create an account
+    2. Download the Paramaribo 1916-1917 Map from resources/txu-oclc-51897369-paramaribo-1941.jpg
+    3. Change the filename to add your initials to the beginning of the name
+    3. Use 'Upload Map' tab to upload the Paramaribo map (if you are doing this with another map you should make sure that providing the map publicaly does not violate copyright)
     5. Within the Map page click on the 'Rectify' tab
-    6. Using the pan and zoom tools find a place that you can identify on both maps
-    7. Using the pen tool double click on the same place on both maps and then click the 'Add Control Point' button
+    6. Using the pan and zoom tools, find a place that you can identify on both maps
+    7. Using the pen tool, click on the same place on both maps and then click the 'Add Control Point' button
     8. Repeat for a total of at least three control points
     9. Click 'Warp Image!'
-    10. In the 'Export' tab make note of the number that you find in the string like this (8120 in this example):
-        http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png
+    10. In the 'Export' tab make note of the number that you find in the string like this (20825 in this example):
+        http://mapwarper.net/maps/tile/20825/{z}/{x}/{y}.png
         This will be your link to the image tiles
 
 
 Creating Vector Data
 
+    Bringing Your Historic Map into GeoJSON.io
+        1. Go to geojson.io
+        2. From the Meta menu item, select Add map layer, and paste in your mapwarper tiles string
+        3. Zoom into Paramaribo and confirm that you can see the map you georeferenced, overlaid on the city
+
     Tracing
-        1. Zoom in on Ann Arbor or wherever you are working
-        2. We can add the tiles from the previous step by opening up the Javascript Console.
-            In Chrome go under View->Developer->Javascript Console
-        3. Add your map by typing (or copying) -- you can use your map instead of mine -- just replace the 8120:
-            window.api.map.addLayer( L.tileLayer( 'http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png' ) );
-        4. Using the tools on the right side of the map you can add polygons, rectangles, points or lines
+        1. Using the tools on the right side of the map you can add polygons, rectangles, points or lines
             Double click to finish a polygon or line
             You can use the table view to add attribute information about any of your vectors
             You can also click on a shape to open the attribute editor for that individual item
+        2. 
 
     Importing
-        Simply drag your csv (comma seperated value--excel and google docs can export .csv files) to the map
+        1. Simply drag your csv (comma seperated value--excel and google docs can export .csv files) to the map
         As long as the file has a Latitude and Longitude column it will add them as points to map
         #note that geojson.io requires values for each latitude and longitude otherwise it will fail (set to 0,0 if you do not know)
 
 
     Exporting
-        You can save out your geojson by using the 'Save' menu and selecting geojson, we will then paste it into our javascript below
+        Save out your geojson by using the 'Save' menu and selecting geojson, we will then paste it into our javascript below
 
 Creating the Web View
 
@@ -56,19 +58,19 @@ Creating the Web View
         }
 
     javascript:
-        // use a variable for the 1920 tile set
-        var a2_1920 = L.tileLayer('http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png');
-        var a2_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        // use a variable for the 1916 tile set
+        var paramaribo_1916 = L.tileLayer('http://mapwarper.net/maps/tile/8120/{z}/{x}/{y}.png');
+        var paramaribo_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
         // create the map with the tilesets
         var map = L.map('map', {
-            layers: [a2_mod, a2_1920]
+            layers: [paramaribo_mod, paramaribo_1920]
         });
 
         // zoom and center in Ann Arbor
-        map.setView([42.2718, -83.7436], 14);
+        map.setView([5.668, -55.2], 14);
 
 
         var geo_json = 'put your geojson here';
@@ -112,7 +114,7 @@ Wrapping it all up:
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>1920 Map of Ann Arbor</title>
+<title>1916-1917 Map of Paramaribo</title>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
