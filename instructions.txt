@@ -1,10 +1,10 @@
   
 
 Georeferencing Your Historic Map
-    1. Go to mapwarper.net and create an account
+    1. Go to mapwarper.net and create an account (see item A on checklist)
     2. Download the Paramaribo 1916-1917 Map from resources/txu-oclc-51897369-paramaribo-1941.jpg
     3. Change the filename to add your initials to the beginning of the name
-    3. Use 'Upload Map' tab to upload the Paramaribo map (if you are doing this with another map you should make sure that providing the map publicaly does not violate copyright)
+    4. Use 'Upload Map' tab to upload the Paramaribo map (if you are doing this with another map you should make sure that providing the map publicaly does not violate copyright)
     5. Within the Map page click on the 'Rectify' tab
     6. Using the pan and zoom tools, find a place that you can identify on both maps
     7. Using the pen tool, click on the same place on both maps and then click the 'Add Control Point' button
@@ -13,7 +13,7 @@ Georeferencing Your Historic Map
     10. In the 'Export' tab make note of the number that you find in the string like this (20825 in this example):
         http://mapwarper.net/maps/tile/20825/{z}/{x}/{y}.png
         This will be your link to the image tiles
-
+        (see item B on checklist)
 
 Creating Vector Data
 
@@ -37,8 +37,11 @@ Creating Vector Data
 
     Exporting
         Save out your geojson by using the 'Save' menu and selecting geojson, we will then paste it into our javascript below
+        (see item C on checklist)
 
 Creating the Web View
+
+    (see item D on checklist)
 
     using jsfiddle add these as resources (on the left hand side under External Resources):
 
