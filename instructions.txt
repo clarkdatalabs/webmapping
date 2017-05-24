@@ -73,7 +73,7 @@ Creating the Web View
         });
 
         // zoom and center in Ann Arbor
-        map.setView([5.668, -55.2], 14);
+        map.setView([5.866, -55.167], 10);
 
 
         var geo_json = 'put your geojson here';
