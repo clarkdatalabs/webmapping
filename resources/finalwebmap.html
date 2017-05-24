@@ -1,0 +1,51 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>1916-1917 Map of Paramaribo, Suriname</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<style type="text/css">
+/* paste CSS below this line */
+ #map {
+            width:600px;
+            height:500px;
+        }
+
+</style>
+</head>
+<body>
+
+
+<div id="map"></div>
+
+ 
+<script type="text/javascript">
+// paste JavaScript below this line
+
+ var paramaribo_1916 = L.tileLayer('http://mapwarper.net/maps/tile/20825/{z}/{x}/{y}.png');
+        var paramaribo_mod = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
+
+        // create the map with the tilesets
+        var map = L.map('map', {
+            layers: [paramaribo_mod, paramaribo_1916]
+        });
+
+        // zoom and center in Paramaribo
+        map.setView([5.866, -55.167], 8);
+
+
+        var geo_json = '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"Rank":1,"City":"Paramaribo"},"geometry":{"type":"Point","coordinates":[-55.167,5.866]}},{"type":"Feature","properties":{"Rank":2,"City":"Lelydorp"},"geometry":{"type":"Point","coordinates":[-55.233,5.7]}},{"type":"Feature","properties":{"Rank":3,"City":"Brokopondo"},"geometry":{"type":"Point","coordinates":[-54.98,5.056]}},{"type":"Feature","properties":{"Rank":4,"City":"Nieuw Nickerie"},"geometry":{"type":"Point","coordinates":[-56.973,5.926]}},{"type":"Feature","properties":{"Rank":5,"City":"Moengo"},"geometry":{"type":"Point","coordinates":[-54.401,5.614]}},{"type":"Feature","properties":{"Rank":6,"City":"Nieuw Amsterdam"},"geometry":{"type":"Point","coordinates":[-55.089,5.886]}},{"type":"Feature","properties":{"Rank":7,"City":"Mariënburg"},"geometry":{"type":"Point","coordinates":[-55.022,5.847]}},{"type":"Feature","properties":{"Rank":8,"City":"Wageningen"},"geometry":{"type":"Point","coordinates":[-56.665,5.76]}},{"type":"Feature","properties":{"Rank":9,"City":"Albina"},"geometry":{"type":"Point","coordinates":[-54.055,5.498]}},{"type":"Feature","properties":{"Rank":10,"City":"Groningen"},"geometry":{"type":"Point","coordinates":[-55.467,5.8]}}]}';
+
+        var geodata = JSON.parse(geo_json);
+
+        //we'll change this once we add the popup
+        var geolayer = L.geoJson(geodata);
+
+        // add the points to the map
+        geolayer.addTo(map);
+
+</script>
+</body>
+</html>
