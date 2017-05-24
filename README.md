@@ -9,6 +9,9 @@ http://mapwarper.net/
 draw features on a map or read in csv files to create geojson
 http://geojson.io
 
+spreadsheet to set up CSV (temporary)
+https://goo.gl/ARdKBX
+
 create realtime javascript/html files
 http://jsfiddle.net/
 
